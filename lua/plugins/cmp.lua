@@ -18,6 +18,8 @@ return {
 			local cmp = require("cmp")
 
 			cmp.setup({
+				-- disable automatic preselection
+				preselect = cmp.PreselectMode.None,
 
 				-- use vsnip for snippet expansion
 				snippet = {
@@ -42,7 +44,15 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+
+					-- only confirm if you explicitly selected an entry
+					["<CR>"] = cmp.mapping(function(fallback)
+						if cmp.visible() and cmp.get_selected_entry() then
+							cmp.confirm({ select = false })
+						else
+							fallback() -- insert newline / normal Enter behavior
+						end
+					end, { "i", "s" }),
 				}),
 
 				sources = cmp.config.sources({
