@@ -18,3 +18,12 @@ vim.api.nvim_set_hl(0, "CursorLineNr", { bold = true })
 -- keymaps
 vim.keymap.set("n", "<leader>gg", "gg0")
 vim.keymap.set("n", "<leader>G", "G$")
+
+-- Inline diagnostics
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = true
+})
+

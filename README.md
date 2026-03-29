@@ -1,8 +1,10 @@
-
 # ToDo
-- Legendary
 - refactoring
-- trouble
+
+- Formatting
+- lsp - cmp
+
+
 
 # Commands (so that i dont forget)
 - :%s/\V?1?/?2?/q or qc

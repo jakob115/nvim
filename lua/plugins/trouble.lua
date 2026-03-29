@@ -1,5 +1,4 @@
 return {
---[[
     "folke/trouble.nvim",
 	cmd = "Trouble",
 	opts = {}, -- default UI options
@@ -12,5 +11,4 @@ return {
 			desc = "Diagnostics (all)",
 		},
 	},
-    ]]
 }

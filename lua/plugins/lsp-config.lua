@@ -1,25 +1,65 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
+		opts = {},
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
+		dependencies = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		opts = function()
 			local servers = require("config.lsp_servers")
-			require("mason-lspconfig").setup({
+			return {
 				ensure_installed = servers,
 				automatic_enable = false,
-			})
+			}
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
 			-- Configure LSP servers
 			local servers = require("config.lsp_servers")
+
+			-- chatgpt: not too sure what it does
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local server_overrides = {
+				lua_ls = {
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								checkThirdParty = false,
+								library = {
+									vim.env.VIMRUNTIME,
+								},
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+						},
+					},
+				},
+			}
+			for _, server in ipairs(servers) do
+				local config =
+					vim.tbl_deep_extend("force", { capabilities = capabilities }, server_overrides[server] or {})
+				vim.lsp.config(server, config)
+			end
+
+
 			vim.lsp.enable(servers)
 
 			-- Set keybinds

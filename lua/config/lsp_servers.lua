@@ -1,7 +1,7 @@
 return {
 	"lua_ls", -- Lua
 	"clangd", -- C, C++
-	"jdtls", -- Java
+	"jdtls", -- Java COULD NOT WORK
 	"pyright", -- Python
 	"lemminx", -- XQuery, xhtml
 	"fish_lsp", -- Fish DOESNT WORK

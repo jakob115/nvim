@@ -12,10 +12,12 @@ return {
 
 		opts = {},
 
-		config = function(_, opts)
-			require("oil").setup(opts)
-
-            vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", {desc = "Open parent directory"})
-		end,
+		keys = {
+			{
+				"<leader>o",
+				"<CMD>Oil<CR>",
+				desc = "Open parent directory",
+			},
+		},
 	},
 }

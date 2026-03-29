@@ -16,6 +16,7 @@ return {
 			xq = { "xq" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
+            ["_"] = { "trim_whitespace", "trim_newlines" }, -- Other
 		},
 	},
 
