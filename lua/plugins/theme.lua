@@ -32,7 +32,6 @@ return {
 		name = "rose-pine",
         opts = {
             variant = "main",
-            dim_inactive_windows = true;
             styles = {
                 transparency = true,
             }
