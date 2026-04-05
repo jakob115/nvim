@@ -9,4 +9,5 @@ return {
 	"html", -- HTML
 	"ts_ls", -- JavaScript, Typescript
 	"rust_analyzer", -- Rust
+    "bashls", -- Bash
 }

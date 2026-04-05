@@ -27,7 +27,7 @@ return {
 			-- Configure LSP servers
 			local servers = require("config.lsp_servers")
 
-			-- chatgpt: not too sure what it does
+			-- chatgpt
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local server_overrides = {
 				lua_ls = {
@@ -63,10 +63,10 @@ return {
 			vim.lsp.enable(servers)
 
 			-- Set keybinds
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {desc = "LSP: show hover at cursor"})
 			--vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			--vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "LSP: show code action at cursor"})
 		end,
 	},
 }

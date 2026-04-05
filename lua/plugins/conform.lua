@@ -8,7 +8,7 @@ return {
 			python = { "isort", "black" },
 			java = { "google-java-format" },
 			rust = { "rustfmt" },
-			bash = { "shfmt" },
+			bash = { "sh" },
 			fish = { "fish_indent" },
 			css = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
